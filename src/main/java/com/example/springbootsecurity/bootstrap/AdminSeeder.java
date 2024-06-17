@@ -10,7 +10,7 @@ import com.example.springbootsecurity.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -23,7 +23,7 @@ public class AdminSeeder implements ApplicationListener<ContextRefreshedEvent> {
 
     private final UserRepository userRepository;
 
-    private final PasswordEncoder passwordEncoder;
+//    private final PasswordEncoder passwordEncoder;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
@@ -46,7 +46,7 @@ public class AdminSeeder implements ApplicationListener<ContextRefreshedEvent> {
         var user = new User();
         user.setFullName(userDto.getFullName());
         user.setEmail(userDto.getEmail());
-        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+//        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setRole(optionalRole.get());
 
         userRepository.save(user);
